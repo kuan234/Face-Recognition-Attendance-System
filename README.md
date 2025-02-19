@@ -31,7 +31,7 @@ You can start developing by editing the files inside the **app** directory. This
 
 ## FYP2-Backend
 
-1. Before to run and backend server, make sure you have install XAMPP and downgrade the database version.
+1. Before to run and backend server, make sure you have install XAMPP and upgrade/downgrade the xampp mariadb version to 10.6.
 
 2. Go to Xampp PhpMyAdmin, Create the database 'face_recognition_system' and import the sql.file
 
@@ -44,3 +44,26 @@ You can start developing by editing the files inside the **app** directory. This
   ```bash
   pip manage.py runserver 0.0.0.0:8000   
   ```
+
+
+
+## How to Change Mariadb version
+1. Shutdown or Quit your XAMPP server from Xampp control panel.
+2. Download the **ZIP version** of MariaDB
+3. Rename the xampp/mysql folder to mysql_old.
+4. Unzip or Extract the contents of the MariaDB ZlP file into your XAMPp folder.
+5. Rename the MariaDB folder, called something like mariadb-5.5.37-win32, to mysql.
+6. Rename xampp/mysql/data to data_ old.
+7. Copy the xampp/mysql_old/data folder to xampp/mysql/.
+8. Copy the xampp/mysql_old/backup folder to xampp/mysql/
+9. Copy the xampp/mysql old/scripts folder to xampp/mysql/.
+10. Copy mysql_uninstallservice.bat and mysql_installservice.bat from xampp/mysql_old/ intoxampp/mysql/.
+11. Copy xampp/mysql_old/bin/my.ini into xampp/mysql/bin.
+12. Edit xampp/mysql/bin/my.ini using a text editor like Notepad. Find skip-federated and add# in front (to the left) of it to comment out the line if it exists, Save and exit the editor.
+13. Start-up XAMPP.
+
+Note lf you can't get mysql to start from Xampp control panel. Add this 'skip-grant-tablesstatement anywhere in xampp/mysql/bin/my.ini file14 :Run xampp/mysql/bin/mysql upgrade.exe.15 : Shutdown and restart MariaDB (MySQL).If still mysql is not started then follow below Note steps(!lmportant)
+
+Note :mysgl error log file: c:xamppmysql\binmysqld.exe: unknown variableinnodb _additional_mem_pool_size=2M' like please remove or commented this statement in my.ifile in this path xampp/mysql/bin/my.ini file
+
+- [Mariadb download link](https://mariadb.org/download/?t=mariadb&o=true&p=mariadb&r=10.2.10&os=windows&cpu=x86_64&pkg=msi&mirror=archive)
